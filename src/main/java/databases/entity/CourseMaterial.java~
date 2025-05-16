@@ -24,7 +24,7 @@ public class CourseMaterial {
         return "CourseMaterial{" +
                 "courseMaterialId=" + courseMaterialId +
                 ", url='" + url + '\'' +
-                ", course={courseId=" + course.getCourseId() + ", title='" + course.getTitle() + '\'' + ", credit=" + course.getCredit() + '}' +
+                ", course={courseId=" + course.getCourseId() + ", title=" + course.getTitle() + ", credit=" + course.getCredit() + '}' +
                 '}';
     }
 }
