@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Data
+@ToString(exclude = "course")
 public class CourseMaterial {
     @Id
     @SequenceGenerator(name = "course_material_sequence", sequenceName = "course_material_sequence", allocationSize = 1)
@@ -15,16 +16,16 @@ public class CourseMaterial {
     private Long courseMaterialId;
     private String url;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinColumn(name = "course_id",referencedColumnName = "courseId")
     private Course course;
 
-    @Override
-    public String toString() {
-        return "CourseMaterial{" +
-                "courseMaterialId=" + courseMaterialId +
-                ", url='" + url + '\'' +
-                ", course={courseId=" + course.getCourseId() + ", title='" + course.getTitle() + '\'' + ", credit=" + course.getCredit() + '}' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "CourseMaterial{" +
+//                "courseMaterialId=" + courseMaterialId +
+//                ", url='" + url + '\'' +
+//                ", course={courseId=" + course.getCourseId() + ", title='" + course.getTitle() + '\'' + ", credit=" + course.getCredit() + '}' +
+//                '}';
+//    }
 }

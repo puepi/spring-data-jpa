@@ -22,5 +22,25 @@ public class Course {
     @OneToOne(mappedBy = "course")
     private CourseMaterial courseMaterial;
 
+    public Long getCourseId() {
+        return courseId;
+    }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public Integer getCredit() {
+        return credit;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId=" + courseId +
+                ", title='" + title + '\'' +
+                ", credit=" + credit +
+                ", courseMaterial=" + courseMaterial +
+                '}';
+    }
 }

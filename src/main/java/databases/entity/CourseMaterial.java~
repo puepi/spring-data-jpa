@@ -15,7 +15,7 @@ public class CourseMaterial {
     private Long courseMaterialId;
     private String url;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinColumn(name = "course_id",referencedColumnName = "courseId")
     private Course course;
 
@@ -24,7 +24,7 @@ public class CourseMaterial {
         return "CourseMaterial{" +
                 "courseMaterialId=" + courseMaterialId +
                 ", url='" + url + '\'' +
-                ", course={courseId=" + course.getCourseId() + ", title=" + course.getTitle() + ", credit=" + course.getCredit() + '}' +
+                ", course={courseId=" + course.getCourseId() + ", title='" + course.getTitle() + '\'' + ", credit=" + course.getCredit() + '}' +
                 '}';
     }
 }

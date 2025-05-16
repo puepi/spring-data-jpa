@@ -18,13 +18,14 @@ class CourseMaterialRepositoryTest {
 
     @Test
     public void saveCourseMaterial() {
+        Course course=Course.builder()
+                .title("DSA")
+                .credit(3)
+                .build();
         CourseMaterial courseMaterial = CourseMaterial
                 .builder()
                 .url("https://www.udemy.com")
-                .course(Course.builder()
-                        .title("DSA")
-                        .credit(3)
-                        .build())
+                .course(course)
                 .build();
         courseMaterialRepository.save(courseMaterial);
     }
