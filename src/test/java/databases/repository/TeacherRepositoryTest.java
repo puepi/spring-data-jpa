@@ -18,14 +18,21 @@ class TeacherRepositoryTest {
     @Test
     public void saveTeacher() {
         Course course = Course.builder()
-                .title("JAVA")
-                .credit(3)
+                .title("Nodejs")
+                .credit(1)
                 .build();
         Teacher teacher = Teacher.builder()
                 .firstName("Meny")
                 .lastName("Capomaccio")
-                .courses(List.of(course))
+                //.courses(List.of(course))
                 .build();
         teacherRepository.save(teacher);
     }
+    
+    @Test
+    public void printTeachers(){
+        List<Teacher> teachers=teacherRepository.findAll();
+        System.out.println("teachers = " + teachers);
+    }
+    
 }

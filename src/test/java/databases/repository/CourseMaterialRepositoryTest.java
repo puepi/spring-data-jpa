@@ -19,13 +19,21 @@ class CourseMaterialRepositoryTest {
     @Test
     public void saveCourseMaterial() {
         Course course=Course.builder()
-                .title("DSA")
-                .credit(3)
+                .title("JAVA")
+                .credit(5)
                 .build();
         CourseMaterial courseMaterial = CourseMaterial
                 .builder()
-                .url("https://www.udemy.com")
+                .url("https://www.coursera.org")
                 .course(course)
+                .build();
+        courseMaterialRepository.save(courseMaterial);
+    }
+
+    @Test
+    public void saveCourseMaterialWithoutCourse(){
+        CourseMaterial courseMaterial=CourseMaterial.builder()
+                .url("www.openclassrooms.fr")
                 .build();
         courseMaterialRepository.save(courseMaterial);
     }
